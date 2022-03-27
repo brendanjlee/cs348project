@@ -61,15 +61,33 @@ Company.create = (newCompany, result) => {
   });
 };
 
+// DELETe - delete by id
+Company.remove = (id, result) => {
+  let queryString = `delete from company where id = ${id}`;
+  sql.query(queryString, (err, res) => {
+    if (err) {
+      console.log(err);
+      result(null, err);
+      return;
+    }
+    if (res.affectedRows == 0) {
+      // no companies with id
+      result({kind: 'not_found'}, null);
+    }
+    console.log('deleted tutorial with id: ', id);
+    result(null, res);
+  })
+}
+
 module.exports = Company;
 
 
 //test
-const deet = {
+const bigTechDetails = {
   cid: 1,
   name: "BigTech",
   field_id: 7,
   num_openings: 0
 }
 
-const bigTech = new Company(deet)
+const bigTech = new Company(bigTechDetails);
