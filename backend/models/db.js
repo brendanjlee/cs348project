@@ -1,5 +1,5 @@
 const mysql = require('mysql2');
-const dbConfig = require('../config/db.config.js');
+const dbConfig = require('../config/db.config');
 
 // connect to database
 const connection = mysql.createConnection({
@@ -9,10 +9,10 @@ const connection = mysql.createConnection({
   database: dbConfig.DB
 })
 
-// open connection
+// open connetion
 connection.connect(error => {
   if (error) throw error;
   console.log(`Connected to database: ${dbConfig.DB}`);
 });
 
-module.exports=connection;
+module.exports= connection;
