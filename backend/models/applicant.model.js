@@ -10,7 +10,7 @@ const Applicant = function(applicant) {
 }
 
 // Query Fucntions
-// Find all
+// POST - Find all
 Applicant.findAll = (result) => {
   let queryString = 'select * from applicant';
   sql.query(queryString, (err, res) => {
@@ -64,4 +64,4 @@ Applicant.remove = (id, result) => {
 
 module.exports = Applicant;
 
-Applicant.findAll();
+//Applicant.findAll()

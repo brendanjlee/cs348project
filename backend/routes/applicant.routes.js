@@ -8,4 +8,6 @@ module.exports = app => {
   router.get('/', applicant.findAll);
   // Delete an applicant with id
   router.delete('/:id', applicant.delete);
-}
+
+  app.use('api/applicants', router);
+};
