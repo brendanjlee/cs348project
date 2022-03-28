@@ -1,7 +1,6 @@
 module.exports = app => {
-  const applicant = require('../controllers/applicant.controller')
+  const applicant = require('../controllers/applicant.controller.js')
   let router = require('express').Router();
-
   // Create new applicant
   router.post('/', applicant.create);
   // Retrieve all applicants
@@ -9,5 +8,5 @@ module.exports = app => {
   // Delete an applicant with id
   router.delete('/:id', applicant.delete);
 
-  app.use('api/applicants', router);
+  app.use('/api/applicant', router);
 };

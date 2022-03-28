@@ -1,5 +1,4 @@
 const sql = require('./db.js');
-
 const Applicant = function(applicant) {
   this.applicant_id = applicant.applicant_id;
   this.name = applicant.name;
@@ -43,7 +42,7 @@ Applicant.create = (newApplicant, result) => {
 
 // DELETE - delete applicant
 Applicant.remove = (id, result) => {
-  let queryString = `delete from applicant where id = ${id}`;
+  let queryString = `delete from applicant where applicant_id = ${id}`;
   sql.query(queryString, (err, res) => {
     if (err) {
       console.log(err);
