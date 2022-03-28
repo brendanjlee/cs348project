@@ -12,37 +12,28 @@ const Job = function(job) {
     this.date_posted = job.date_posted;
 }
 
+
 // GET - retrieve all jobs
-Job.getAll = (result) => {
-    sql.query('select * from job', (err, res) => {
-      if (err) {
-        console.log('error: ', err);
-        result(null, err);
-        return;
-      }
-      // print out result
-      console.log('Jobs: ', res);
-      result(null, res);
-    })
-  }
+Job.findAll = (result) => {
+  sql.query('select * from job', (err, res) => {
+    if (err) {
+      console.log('error: ', err);
+      result(null, err);
+      return;
+    }
+    // print out result
+    console.log('Jobs: ', res);
+    result(null, res);
+  })
+}
 
 
-// POST - create a job
-Job.create = (newJob, result) => {
-    sql.query("insert into job set ?", newJob, (err, res) => {
-      if (err) {
-        console.log("error:", err);
-        result(err, null);
-        return;
-      }
-      console.log("Created job: ", {id: res.insertId, ...newJob});
-      result(null, {id: res.insertId, ...newJob});
-    });
-  };
-
-// find by job title
+// GET - find by job title
 Job.findByTitle = (job_title, result) => {
   sql.query(`SELECT * FROM job WHERE job_title = ${job_title}`, (err, res) => {
+
+    // add intersect with select query for specified field if a field is filled in, change initial query to select * from Job
+
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -58,26 +49,20 @@ Job.findByTitle = (job_title, result) => {
   });
 };
 
-// GET - retrieve all jobs 
-Job.getAll = (job_title, result) => {
-
-  // query to find all tutorial
-  let query = "SELECT * FROM job";
-  if (job_title) {
-
-    // filter tutorials with the given title
-    query += ` WHERE job_title LIKE '%${job_title}%'`;
-  }
-  sql.query(query, (err, res) => {
+// POST - create a job
+Job.create = (newJob, result) => {
+  sql.query("insert into job set ?", newJob, (err, res) => {
     if (err) {
-      console.log("error: ", err);
-      result(null, err);
+      console.log("error:", err);
+      result(err, null);
       return;
     }
-    console.log("jobs: ", res);
-    result(null, res);
+    console.log("Created job: ", {id: res.insertId, ...newJob});
+    result(null, {id: res.insertId, ...newJob});
   });
 };
+
+
 
 // DELETE - delete by id
 Job.remove = (job_id, result) => {
@@ -96,6 +81,4 @@ Job.remove = (job_id, result) => {
     result(null, res);
   })
 }
-
-
 

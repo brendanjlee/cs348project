@@ -48,6 +48,8 @@ Company.findByName = (companyName, result) => {
   });
 }
 
+
+
 // POST - create company
 Company.create = (newCompany, result) => {
   sql.query("insert into company set ?", newCompany, (err, res) => {
