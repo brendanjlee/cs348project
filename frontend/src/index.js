@@ -3,11 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CreateAcc from './Components/CreateAcc'
+import Home from './Components/Home'
+// Importing the Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  //   <App />
+  // </React.StrictMode>,
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App/>}/>
+      <Route path="Home" element={<Home/>}/>
+      <Route path="/CreateAcc" element={<CreateAcc/>}/>
+    </Routes>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
