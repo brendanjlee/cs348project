@@ -1,5 +1,4 @@
 const sql = require('./db.js')
-
 const Company = function(company) {
   this.cid = company.cid;
   this.name = company.name;
@@ -17,37 +16,55 @@ Company.findAll = (result) => {
     if (err) {
       console.log('Error: ', err);
       result(null, err);
-      return;
+      return -1;
     }
 
     // print out result
     console.log('FindAll (Company): ', res);
     result(null, res);
+    return 1;
   });
 };
+
+// Get -- find by id
+Company.findById = (id, result) => {
+  let queryString = `select * from company where cid = ${id}`;
+  sql.query(queryString, (err, res) => {
+    if (err) {
+      console.log(err);
+      result(null, err);
+      return -1;
+    }
+
+    if (res.length) {
+      console.log('found company: ', res[0]);
+      result(null, res[0]);
+      return 1;
+    }
+
+    result({kind: 'not_found'}, null);
+  })
+}
 
 // GET - find by company name
 Company.findByName = (companyName, result) => {
   let queryString = `select * from company where name = \'${companyName}\'`;
-
   sql.query(queryString, (err, res) => {
     if (err) {
       console.log(err);
-      //result(err, null);
-      return;
+      result(err, null);
+      return -1;
     }
     // more than one
     if (res.length) {
-      console.log('FindByID (Company): ', res[0]);
-      //result(null, res[0]);
-      return;
+      console.log('found compnay: ', res[0]);
+      result(null, res[0]);
+      return 1;
     }
-
     // None found
     result({kind: "not_found"}, null);
   });
 }
-
 
 
 // POST - create company
@@ -83,13 +100,4 @@ Company.remove = (id, result) => {
 
 module.exports = Company;
 
-
-//test
-const bigTechDetails = {
-  cid: 1,
-  name: "BigTech",
-  field_id: 7,
-  num_openings: 0
-}
-
-const bigTech = new Company(bigTechDetails);
+//Company.findAll()
