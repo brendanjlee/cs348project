@@ -25,6 +25,22 @@ Applicant.findAll = (result) => {
   });
 }
 
+// POST - find by id
+Applicant.findById = (id, res) => {
+  let queryString = `select * from applicant where applicant_id == ${id}`;
+  sql.query(queryString, (err, res) => {
+    if (err) {
+      console.log(err);
+      result(null, err);
+      return -1;
+    }
+
+    console.log('found applicant: ', res);
+    result(null, res);
+    return 1;
+  })
+}
+
 // POST - Create Applicant
 Applicant.create = (newApplicant, result) => {
   sql.query('insert into applicant set ?', newApplicant, (err, res) => {
