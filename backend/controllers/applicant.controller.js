@@ -43,6 +43,20 @@ exports.findAll = (req, res) => {
   })
 };
 
+// find applicant by id
+exports.findOne = (req, res) => {
+  Applicant.findById(req.params.id, (err, data) => {
+    if (err) {
+      if (err.kind == 'not_found') {
+        res.status(404).send({message: `Not found Applicant with id ${req.params.id}.`});
+      } else {
+        res.status(500).send({message: `Error retrieving Applicant with id: ${req.params.id}`});
+      }
+    }
+    else res.send(data);
+  });
+};
+
 // Delete with id
 exports.delete = (req, res) => {
   Applicant.remove(req.params.id, (err, data) => {

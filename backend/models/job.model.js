@@ -49,6 +49,44 @@ Job.findByTitle = (job_title, result) => {
   });
 };
 
+// GET -- find by skill
+Job.findBySkill = (skill_id, result) => {
+  let queryString = `select * from job where skill_req = ${skill_id}`;
+  sql.query(queryString, (err, res) => {
+    if (err) {
+      console.log('error: ', err);
+      result(err, null);
+      return -1;
+    }
+    if (res.length) {
+      console.log('Found Job by skill', res);
+      result(null, res);
+      return 1;
+    }
+
+    return({kind: 'not_found'}, null);
+  });
+}
+
+// GET -- find by experience level (years)
+Job.findByExperience = (experience, result) => {
+  let queryString = `select * from job where min_experience <= ${experience}`;
+  sql.query(queryString, (err, res) => {
+    if (err) {
+      console.log('error: ', err);
+      result(err, null);
+      return -1;
+    }
+    if (res.length) {
+      console.log('Found Job by min experience', res);
+      result(null, res);
+      return 1;
+    }
+
+    return({kind: 'not_found'}, null);
+  });
+}
+
 // POST - create a job
 Job.create = (newJob, result) => {
   sql.query("insert into job set ?", newJob, (err, res) => {
@@ -61,7 +99,6 @@ Job.create = (newJob, result) => {
     result(null, {id: res.insertId, ...newJob});
   });
 };
-
 
 
 // DELETE - delete by id
@@ -82,3 +119,4 @@ Job.remove = (job_id, result) => {
   })
 }
 
+module.exports = Job;

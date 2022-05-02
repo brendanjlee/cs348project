@@ -9,7 +9,7 @@ const Applicant = function(applicant) {
 }
 
 // Query Fucntions
-// POST - Find all
+// get - Find all
 Applicant.findAll = (result) => {
   let queryString = 'select * from applicant';
   sql.query(queryString, (err, res) => {
@@ -23,6 +23,26 @@ Applicant.findAll = (result) => {
     result(null, res);
     return 1;
   });
+}
+
+// Get - find by id
+Applicant.findById = (id, result) => {
+  let queryString = `select * from applicant where applicant_id = ${Number(id)}`;
+  sql.query(queryString, (err, res) => {
+    if (err) {
+      console.log(err);
+      result(null, err);
+      return -1;
+    }
+    // no id found
+    if (res.length) {
+      console.log('found applicant: ', res[0]);
+      result(null, res[0]);
+      return 1;
+    }
+
+    result({kind: 'not_found'}, null);
+  })
 }
 
 // POST - Create Applicant
