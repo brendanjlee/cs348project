@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CreateAcc from './Components/CreateAcc'
 import Home from './Components/Home'
+import MainPage from './Components/MainPage'
 // Importing the Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -18,6 +19,7 @@ ReactDOM.render(
       <Route path="/" element={<App/>}/>
       <Route path="Home" element={<Home/>}/>
       <Route path="/CreateAcc" element={<CreateAcc/>}/>
+      <Route path="/MainPage" element={<MainPage/>}/>
     </Routes>
   </BrowserRouter>,
   document.getElementById('root')

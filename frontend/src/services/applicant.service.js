@@ -6,13 +6,15 @@ class ApplicantDataService {
     return http.get('/applicant');
   }
 
-  // get applicant by id
-  get(id) {
-    return http.get(`/applicant/${id}`);
+  // get applicant by email
+  get(email) {
+    console.log(email)
+    return http.get(`/applicant/${email}`);
   }
 
   // create new applicant
   create(data) {
+    console.log(data)
     return http.post('/applicant/', data);
   }
 

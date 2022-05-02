@@ -43,14 +43,16 @@ exports.findAll = (req, res) => {
   })
 };
 
-// find applicant by id
+// find applicant by email
 exports.findOne = (req, res) => {
-  Applicant.findById(req.params.id, (err, data) => {
+  Applicant.findByEmail(req.params.email, (err, data) => {
     if (err) {
       if (err.kind == 'not_found') {
-        res.status(404).send({message: `Not found Applicant with id ${req.params.id}.`});
+        //res.status(404).send({message: `Not found Applicant with id ${req.params.id}.`});
+        res.status(404).send({message: `Not found Applicant with email ${req.params.email}.`});
       } else {
-        res.status(500).send({message: `Error retrieving Applicant with id: ${req.params.id}`});
+        //res.status(500).send({message: `Error retrieving Applicant with id: ${req.params.id}`});
+        res.status(500).send({message: `Error retrieving Applicant with email: ${req.params.email}`});
       }
     }
     else res.send(data);

@@ -45,6 +45,28 @@ Applicant.findById = (id, result) => {
   })
 }
 
+// Get - find by email
+Applicant.findByEmail = (email, result) => {
+  let queryString = `select * from applicant where email = \'${email}\'`;
+  sql.query(queryString, (err, res) => {
+    if (err) {
+      console.log(err);
+      result(null, err);
+      return -1;
+    }
+    // no id found
+    if (res.length) {
+      console.log('found applicant: ', res[0]);
+      result(null, res[0]);
+      return 1;
+    }
+
+    result({kind: 'not_found'}, null);
+  })
+}
+
+
+
 // POST - Create Applicant
 Applicant.create = (newApplicant, result) => {
   sql.query('insert into applicant set ?', newApplicant, (err, res) => {
