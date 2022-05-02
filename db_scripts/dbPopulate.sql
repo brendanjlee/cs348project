@@ -31,7 +31,7 @@ VALUES
 (10,'Medicine'),
 (11,'Caretaking'),
 (12,'Mechanic'),
-(13,'Eletrical'),
+(13,'Electrical'),
 (14,'Plumbing'),
 (15,'Labor'),
 (16,'Driving'),
@@ -71,4 +71,5 @@ INSERT INTO `testdatabase`.`job`
 VALUES
 (2, 'FrontEnd Dev', '', 1, 2, 3, 0, 1, null), --facebook
 (3, 'BackEnd Dev', '', 1, 2, 3, 0, 1, null) --facebook
+(4, 'Software Eng', '', 2, 1, 3, 1, 
 
