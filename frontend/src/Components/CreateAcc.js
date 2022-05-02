@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import ApplicantDataService from '../services/applicant.service.js'
 import './home.css';
 
 
@@ -83,6 +84,19 @@ const CreateAcc = () => {
         console.log(exper)
 
         //TODO: *Add Axios post call to add user to database*
+
+        var data = {
+            email: email,
+            name: name,
+            phone: phone,
+            skillId: skillId,
+            exper: exper
+        }
+
+        ApplicantDataService.create(data)
+        .then(response => {
+            console.log(response)
+        })
         
         navigate("/Home")
     }
