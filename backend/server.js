@@ -26,6 +26,9 @@ applicantRouter(app);
 const companyRouter = require('./routes/company.routes.js');
 companyRouter(app);
 
+const jobRouter = require('./routes/job.routes');
+jobRouter(app);
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
