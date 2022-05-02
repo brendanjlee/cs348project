@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
+
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import ApplicantDataService from '../services/applicant.service.js'
@@ -84,13 +85,14 @@ const CreateAcc = () => {
         console.log(exper)
 
         //TODO: *Add Axios post call to add user to database*
-
+        
         var data = {
+            applicant_id: Math.round(Math.random() * (99) + 1), 
             email: email,
             name: name,
             phone: phone,
-            skillId: skillId,
-            exper: exper
+            skill_id: skillId,
+            experience: exper
         }
 
         ApplicantDataService.create(data)
