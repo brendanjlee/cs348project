@@ -5,8 +5,8 @@ module.exports = app => {
   router.post('/', applicant.create);
   // Retrieve all applicants
   router.get('/', applicant.findAll);
-  // Retrieve a single applicant
-  router.get('/:id', applicant.findOne);
+  // Retrieve a single applicant with email
+  router.get('/:email', applicant.findOne);
   // Delete an applicant with id
   router.delete('/:id', applicant.delete);
 
