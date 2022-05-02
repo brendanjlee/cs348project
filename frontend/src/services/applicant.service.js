@@ -8,6 +8,7 @@ class ApplicantDataService {
 
   // get applicant by email
   get(email) {
+    console.log(email)
     return http.get(`/applicant/${email}`);
   }
 
