@@ -58,3 +58,17 @@ VALUES
 (12, 'Wells Fargo', 7, 0),
 (13, 'GOldman Sachs', 7, 0);
 
+INSERT INTO `testdatabase`.`job`
+(`job_id`,
+`job_title`,
+`job_desc`,
+`company_id`,
+`min_experience`,
+`skill_req`,
+`num_applicants`,
+`is_active`,
+`date_posted`)
+VALUES
+(2, 'FrontEnd Dev', '', 1, 2, 3, 0, 1, null), --facebook
+(3, 'BackEnd Dev', '', 1, 2, 3, 0, 1, null) --facebook
+
