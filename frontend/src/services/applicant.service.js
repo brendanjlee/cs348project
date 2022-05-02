@@ -6,9 +6,9 @@ class ApplicantDataService {
     return http.get('/applicant');
   }
 
-  // get applicant by id
-  get(id) {
-    return http.get(`/applicant/${id}`);
+  // get applicant by email
+  get(email) {
+    return http.get(`/applicant/${email}`);
   }
 
   // create new applicant
