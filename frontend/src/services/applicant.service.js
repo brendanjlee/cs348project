@@ -13,6 +13,7 @@ class ApplicantDataService {
 
   // create new applicant
   create(data) {
+    console.log(data)
     return http.post('/applicant/', data);
   }
 
