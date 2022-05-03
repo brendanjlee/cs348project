@@ -68,3 +68,18 @@ exports.findByComapny = (req, res) => {
     else res.send(data);
   })
 }
+
+// find by field
+exports.findByField = (req, res) => {
+  JoinedJob.findByField(req.params.field_name, (err, data) => {
+    //print(req.params.field_name)
+    if (err) {
+      if (err.kind == 'not_found') {
+        res.status(404).send({message: `Not found Job with field_name ${req.params.field_name}.`});
+      } else {
+        res.status(500).send({message: `Error retrieving Job with field_name: ${req.params.field_name}`});
+      }
+    }
+    else res.send(data);
+  })
+}

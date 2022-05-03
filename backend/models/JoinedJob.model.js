@@ -118,5 +118,46 @@ JoinedJob.findByCompany = (company_name, result) => {
   });
 }
 
+JoinedJob.findByField = (field_name, result) => {
+  const queryString = `select j.job_id as job_id, c.name as company_name, j.job_title as job_title, j.job_desc as job_desc, s.name as skill_req, j.date_posted as date_posted, j.is_active as is_active, j.min_experience as experience, f.name as field_name\
+   from job j join company c on j.company_id = c.cid join skill s on j.skill_req = s.skill_id join field f on c.field_id = f.field_id\
+   where f.name = \"${field_name}\";` 
+  sql.query(queryString, (err, res) => {
+    if (err) {
+      console.log('error: ', err);
+      result(err, null);
+      return -1;
+    }
+    if (res.length) {
+      console.log('Found Job by field', res);
+      result(null, res);
+      return 1;
+    }
+
+    return({kind: 'not_found'}, null);
+  });
+}
+
+// Put -- ipdate job 
+JoinedJob.updateApplicantCount = (job_id, result) => {
+  const queryString = `UPDATE job\
+  SET\
+  num_applicants = num_applicants + 1\
+  WHERE job_id = ${job_id};`;
+  sql.query(queryString, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+    if (res.affectedRows == 0) {
+      result({ kind: "not_found" }, null);
+      return;
+    }
+    console.log("updated joblisting: ");
+    result(null, { id: job_id });
+  })
+}
+
 module.exports = JoinedJob;
-//JoinedJob.findByExperience(1)
+//JoinedJob.findByField("Information Technology")

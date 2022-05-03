@@ -10,6 +10,8 @@ module.exports = app => {
   router.get('/byexperience/:experience', joinedJob.findByExperience);
   // Retrieve by company_id 
   router.get('/bycompany/:company_name', joinedJob.findByComapny);
+  // Retrieve by field
+  router.get('/byfield/:field_name', joinedJob.findByField);
 
   app.use('/api/joinedJob', router)
 }

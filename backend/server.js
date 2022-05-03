@@ -29,7 +29,7 @@ companyRouter(app);
 const jobRouter = require('./routes/job.routes');
 jobRouter(app);
 
-const joinedJobRouter = require('./routes/joinJob.routes');
+const joinedJobRouter = require('./routes/joinedJob.routes');
 joinedJobRouter(app);
 
 app.listen(PORT, () => {
