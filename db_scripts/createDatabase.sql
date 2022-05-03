@@ -14,7 +14,7 @@ CREATE TABLE if not exists `company` (
 CREATE TABLE if not exists `job` (
 	`job_id` INT NOT NULL,
 	`job_title` VARCHAR(45) NULL,
-	`job_desc` VARCHAR (100) NULL,
+	`job_desc` VARCHAR (500) NULL,
 	`company_id` INT NULL,
 	`min_experience` INT NULL,
 	`skill_req` INT NULL,
