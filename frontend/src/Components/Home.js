@@ -21,6 +21,7 @@ const Home = () => {
                     </div>
                 </form>
                 <Link to="/CreateAcc" className="ButtonLink">New User?</Link>
+                <Link to="/Joblist" className="ButtonLink">test list</Link>
             </div>
         </div>
     )
