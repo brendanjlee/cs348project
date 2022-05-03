@@ -27,7 +27,6 @@ Job.findAll = (result) => {
   })
 }
 
-
 // GET - find by job title
 Job.findByTitle = (job_title, result) => {
   sql.query(`SELECT * FROM job WHERE job_title = ${job_title}`, (err, res) => {
@@ -79,6 +78,25 @@ Job.findByExperience = (experience, result) => {
     }
     if (res.length) {
       console.log('Found Job by min experience', res);
+      result(null, res);
+      return 1;
+    }
+
+    return({kind: 'not_found'}, null);
+  });
+}
+
+// GET -- find by company
+Job.findByCompany = (company_id, result) => {
+  let queryString = `select * from job where company_id = ${company_id}`;
+  sql.query(queryString, (err, res) => {
+    if (err) {
+      console.log('error: ', err);
+      result(err, null);
+      return -1;
+    }
+    if (res.length) {
+      console.log('Found Job by Company', res);
       result(null, res);
       return 1;
     }

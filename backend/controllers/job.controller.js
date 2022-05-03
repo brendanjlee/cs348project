@@ -40,3 +40,17 @@ exports.findByExperience = (req, res) => {
     else res.send(data);
   })
 }
+
+// find by company
+exports.findByCompany = (req, res) => {
+  Job.findByCompany(req.params.company_id, (err, data) => {
+    if (err) {
+      if (err.kind == 'not_found') {
+        res.status(404).send({message: `Not found Applicant with company_id ${req.params.company_id}.`});
+      } else {
+        res.status(500).send({message: `Error retrieving Applicant with company_id: ${req.params.company_id}`});
+      }
+    }
+    else res.send(data);
+  })
+}
