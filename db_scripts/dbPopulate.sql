@@ -71,5 +71,8 @@ INSERT INTO `testdatabase`.`job`
 VALUES
 (2, 'FrontEnd Dev', '', 1, 2, 3, 0, 1, null), --facebook
 (3, 'BackEnd Dev', '', 1, 2, 3, 0, 1, null) --facebook
-(4, 'Software Eng', '', 2, 1, 3, 1, 
+(4, 'Software Eng', 'Responsibilities include gathering user requirements, defining system functionality and writing code in various 
+languages, like Java, Ruby on Rails or .NET programming languages (e.g. C++ or JScript.NET.) Our ideal candidates are familiar with 
+the software development life cycle (SDLC) from preliminary system analysis to tests and deployment.', 2, 1, 3, 0, 1, null) --apple
+(5,  
 
