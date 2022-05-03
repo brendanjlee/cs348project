@@ -29,6 +29,9 @@ companyRouter(app);
 const jobRouter = require('./routes/job.routes');
 jobRouter(app);
 
+const joinedJobRouter = require('./routes/joinJob.routes');
+joinedJobRouter(app);
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
