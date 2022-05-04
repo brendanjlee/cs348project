@@ -23,24 +23,24 @@ const MainPage = () => {
                     title="Skill"
                     id="dropdown-menu-align-responsive-1"
                     onSelect={(event) => {setSkill(event)}}>
-                        <Dropdown.Item eventKey="1">Engineering</Dropdown.Item>
-                        <Dropdown.Item eventKey="2">Math</Dropdown.Item>
-                        <Dropdown.Item eventKey="3">Programming</Dropdown.Item>
-                        <Dropdown.Item eventKey="4">Accounting</Dropdown.Item>
-                        <Dropdown.Item eventKey="5">HR</Dropdown.Item>
-                        <Dropdown.Item eventKey="6">Management</Dropdown.Item>
-                        <Dropdown.Item eventKey="7">Marketing</Dropdown.Item>
-                        <Dropdown.Item eventKey="8">Writing</Dropdown.Item>
-                        <Dropdown.Item eventKey="9">Counseling</Dropdown.Item>
-                        <Dropdown.Item eventKey="10">Medicine</Dropdown.Item>
-                        <Dropdown.Item eventKey="11">Caretaking</Dropdown.Item>
-                        <Dropdown.Item eventKey="12">Mechanic</Dropdown.Item>
-                        <Dropdown.Item eventKey="13">Electrical</Dropdown.Item>
-                        <Dropdown.Item eventKey="14">Plumbing</Dropdown.Item>
-                        <Dropdown.Item eventKey="15">Labor</Dropdown.Item>
-                        <Dropdown.Item eventKey="16">Driving</Dropdown.Item>
-                        <Dropdown.Item eventKey="17">Law</Dropdown.Item>
-                        <Dropdown.Item eventKey="18">Executive</Dropdown.Item>
+                        <Dropdown.Item eventKey="Engineering">Engineering</Dropdown.Item>
+                        <Dropdown.Item eventKey="Math">Math</Dropdown.Item>
+                        <Dropdown.Item eventKey="Programming">Programming</Dropdown.Item>
+                        <Dropdown.Item eventKey="Accounting">Accounting</Dropdown.Item>
+                        <Dropdown.Item eventKey="HR">HR</Dropdown.Item>
+                        <Dropdown.Item eventKey="Management">Management</Dropdown.Item>
+                        <Dropdown.Item eventKey="Marketing">Marketing</Dropdown.Item>
+                        <Dropdown.Item eventKey="Writing">Writing</Dropdown.Item>
+                        <Dropdown.Item eventKey="Counseling">Counseling</Dropdown.Item>
+                        <Dropdown.Item eventKey="Medicine">Medicine</Dropdown.Item>
+                        <Dropdown.Item eventKey="Caretaking">Caretaking</Dropdown.Item>
+                        <Dropdown.Item eventKey="Mechanic">Mechanic</Dropdown.Item>
+                        <Dropdown.Item eventKey="Electrical">Electrical</Dropdown.Item>
+                        <Dropdown.Item eventKey="Plumbing">Plumbing</Dropdown.Item>
+                        <Dropdown.Item eventKey="Labor">Labor</Dropdown.Item>
+                        <Dropdown.Item eventKey="Driving">Driving</Dropdown.Item>
+                        <Dropdown.Item eventKey="Law">Law</Dropdown.Item>
+                        <Dropdown.Item eventKey="Executive">Executive</Dropdown.Item>
                     </DropdownButton>
                 </div>
 
@@ -51,19 +51,19 @@ const MainPage = () => {
                     title="Company"
                     id="dropdown-menu-align-responsive-1"
                     onSelect={(event) => {setCompany(event)}}>
-                        <Dropdown.Item eventKey="1">Facebook</Dropdown.Item>
-                        <Dropdown.Item eventKey="2">apple</Dropdown.Item>
-                        <Dropdown.Item eventKey="3">Amazon</Dropdown.Item>
-                        <Dropdown.Item eventKey="4">Netflix</Dropdown.Item>
-                        <Dropdown.Item eventKey="5">Google</Dropdown.Item>
-                        <Dropdown.Item eventKey="6">Burger King</Dropdown.Item>
-                        <Dropdown.Item eventKey="7">McDonalds</Dropdown.Item>
-                        <Dropdown.Item eventKey="8">Target</Dropdown.Item>
-                        <Dropdown.Item eventKey="9">Walmart</Dropdown.Item>
-                        <Dropdown.Item eventKey="10">JPMorgan Chase & Co</Dropdown.Item>
-                        <Dropdown.Item eventKey="11">Bank of America</Dropdown.Item>
-                        <Dropdown.Item eventKey="12">Wells Fargo</Dropdown.Item>
-                        <Dropdown.Item eventKey="13">Goldman Sachs</Dropdown.Item>
+                        <Dropdown.Item eventKey="Facebook">Facebook</Dropdown.Item>
+                        <Dropdown.Item eventKey="Apple">Apple</Dropdown.Item>
+                        <Dropdown.Item eventKey="Amazon">Amazon</Dropdown.Item>
+                        <Dropdown.Item eventKey="Netflix">Netflix</Dropdown.Item>
+                        <Dropdown.Item eventKey="Google">Google</Dropdown.Item>
+                        <Dropdown.Item eventKey="Burger King">Burger King</Dropdown.Item>
+                        <Dropdown.Item eventKey="McDonalds">McDonalds</Dropdown.Item>
+                        <Dropdown.Item eventKey="Target">Target</Dropdown.Item>
+                        <Dropdown.Item eventKey="Walmart">Walmart</Dropdown.Item>
+                        <Dropdown.Item eventKey="JPMorgan Chase & Co">JPMorgan Chase & Co</Dropdown.Item>
+                        <Dropdown.Item eventKey="Bank of America">Bank of America</Dropdown.Item>
+                        <Dropdown.Item eventKey="Wells Fargo">Wells Fargo</Dropdown.Item>
+                        <Dropdown.Item eventKey="Goldman Sachs">Goldman Sachs</Dropdown.Item>
                     </DropdownButton>
                 </div>
 
@@ -74,18 +74,17 @@ const MainPage = () => {
                     title="Field"
                     id="dropdown-menu-align-responsive-1"
                     onSelect={(event) => {setField(event)}}>
-                        <Dropdown.Item eventKey="0">Other</Dropdown.Item>
-                        <Dropdown.Item eventKey="1">Information Technology</Dropdown.Item>
-                        <Dropdown.Item eventKey="2">Architecture and Engineering</Dropdown.Item>
-                        <Dropdown.Item eventKey="3">Entertainment</Dropdown.Item>
-                        <Dropdown.Item eventKey="4">Health Care</Dropdown.Item>
-                        <Dropdown.Item eventKey="5">Consumer Discretionary</Dropdown.Item>
-                        <Dropdown.Item eventKey="6">Consumer Staples</Dropdown.Item>
-                        <Dropdown.Item eventKey="7">Finance</Dropdown.Item>
-                        <Dropdown.Item eventKey="8">Telecommunication Services</Dropdown.Item>
-                        <Dropdown.Item eventKey="9">Utilities</Dropdown.Item>
-                        <Dropdown.Item eventKey="10">Real Estate</Dropdown.Item>
-
+                        <Dropdown.Item eventKey="Other">Other</Dropdown.Item>
+                        <Dropdown.Item eventKey="Information Technology">Information Technology</Dropdown.Item>
+                        <Dropdown.Item eventKey="Architecture and Engineering">Architecture and Engineering</Dropdown.Item>
+                        <Dropdown.Item eventKey="Entertainment">Entertainment</Dropdown.Item>
+                        <Dropdown.Item eventKey="Health Care">Health Care</Dropdown.Item>
+                        <Dropdown.Item eventKey="Consumer Discretionary">Consumer Discretionary</Dropdown.Item>
+                        <Dropdown.Item eventKey="Consumer Staples">Consumer Staples</Dropdown.Item>
+                        <Dropdown.Item eventKey="Finance">Finance</Dropdown.Item>
+                        <Dropdown.Item eventKey="Telecommunication Services">Telecommunication Services</Dropdown.Item>
+                        <Dropdown.Item eventKey="Utilites">Utilities</Dropdown.Item>
+                        <Dropdown.Item eventKey="Real Estate">Real Estate</Dropdown.Item>
                     </DropdownButton>
                 </div>
 

@@ -9,6 +9,8 @@ import JoinedJobDataService from '../services/joinedJob.service.js';
 const JobList = ({skill, company, field, minExperience}) => {
   const [listings, setListings] = useState([]); 
 
+  console.log(skill, company, field, minExperience)
+
 
   const retrieveJobs = () => {
     //JobDataService.getAll()
@@ -19,8 +21,39 @@ const JobList = ({skill, company, field, minExperience}) => {
     })
   }
 
-  const handleSumbit = () => {
+  const handleSkill = () => {
+    
+      JoinedJobDataService.getBySkill(skill)
+      .then(response => {
+          setListings(response.data)
+          return response.data
+      })
+  }
+
+  const handleCompany = () => {
+      JoinedJobDataService.getByCompany(company)
+      .then(response => {
+          setListings(response.data)
+          return response.data
+      })
     // console.log(retrieveJobs());
+  }
+
+  const handleField = () => {
+      JoinedJobDataService.getByField(field)
+      .then(response => {
+          setListings(response.data)
+          return response.data
+      })
+  }
+
+  const handleExperience = () => {
+      minExperience = Number(minExperience)
+      JoinedJobDataService.getByExperience(minExperience)
+      .then(response => {
+          setListings(response.data)
+          return response.data
+      })
   }
 
   useEffect(() => {
@@ -37,7 +70,12 @@ const JobList = ({skill, company, field, minExperience}) => {
     <div>
       <div className='job-list'>
         <h2>Job Listings</h2>
-        <Button type="submit" onClick={handleSumbit}/>
+        <div className="button-container">
+            <Button type="submit" onClick={handleSkill}>Filter Selected Skill</Button>
+            <Button type="submit" onClick={handleCompany}>Filter Selected Company</Button>
+            <Button type="submit" onClick={handleField}>Filter Selected Field</Button>
+            <Button type="submit" onClick={handleExperience}>Filter Selected Experience</Button>
+        </div>
         <ul className='list-group'>
             {listings.map((i, index) => (
                 <JobPost data={listings[index]} key={index}/>

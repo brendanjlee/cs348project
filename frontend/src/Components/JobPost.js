@@ -51,7 +51,7 @@ class JobPost extends Component {
                     </div>
                     <div className="job-info-detail">
                         <div className="title">Min Experience:</div>
-                        <div>{this.props.data.min_experience} Years</div>
+                        <div>{this.props.data.experience} Years</div>
                     </div>
                     <div className="job-info-detail">
                         <div className="title">Status:</div>
