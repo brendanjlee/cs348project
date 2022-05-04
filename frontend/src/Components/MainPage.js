@@ -3,9 +3,11 @@ import JobList from './JobList.js'
 import ApplicantService from '../services/applicant.service.js'
 import './home.css';
 
+import {DropdownButton} from 'react-bootstrap';
+import {ButtonGroup} from 'react-bootstrap';
+import {Dropdown} from 'react-bootstrap';
+
 const MainPage = () => {
-
-
 
     const [skill, setSkill] = useState("")
     const [company, setCompany] = useState("")
