@@ -13,7 +13,7 @@ class JoinedJobDataService {
 
   // Retrieve by min experience (int, ex: 5)
   getByExperience(experience) {
-    return http.get(`/joinedJob/byexperience/${Number(experience)}`);
+    return http.get(`/joinedJob/byexperience/${(experience)}`);
   }
 
   // Retrieve by company_name (string, ex: Facebook)

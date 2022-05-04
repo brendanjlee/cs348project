@@ -147,3 +147,10 @@
 .job-number {
     margin: 1rem;
 }
+
+.button-container {
+    display: flex;
+}
+.button-container Button {
+    margin-left: 1rem;
+}
