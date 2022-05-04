@@ -73,3 +73,77 @@
     background-color: #0b5ed7;
     border-color: #0a58ca;
 }
+.jobList {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+.job-item {
+    display: flex;
+    flex-direction: column;
+}
+.job-info {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px black;
+    padding: 1.5rem 1rem;
+    margin: 0 2rem;
+    border-radius: 1rem;
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    
+}
+
+.job-info:hover {
+    color: #fff;
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+.job-info-detail {
+    padding: 0 2rem;
+    overflow-y: scroll;
+    display: flex;
+    font-size: 1rem;
+}
+
+.apply {
+    margin: 1rem 5rem;
+    align-self: end;
+    width: auto;
+}
+
+.title {
+    padding-right: 1rem;
+    font-weight: bold;
+    
+}
+
+.headerFilter {
+    display: flex;
+    justify-content: center;
+}
+
+.headerFilter div {
+    margin: 1rem;
+}
+
+.header {
+    display: flex;
+    margin: 0;
+    border-radius: 0;
+}
+.header:hover {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd; 
+}
+.job-number {
+    margin: 1rem;
+}
