@@ -21,6 +21,13 @@ class JobPost extends Component {
     render() {
         let date = this.props.data.date_posted.substring(0,10)
         console.log(this.props.data)
+        let status = ""
+
+        if( this.props.data.is_active === 1) {
+            status = "Active"
+        } else {
+            status = "Not Active"
+        }
         
         return(
             <div className="job-item">
@@ -32,11 +39,11 @@ class JobPost extends Component {
                     </div>
                     <div className="job-info-detail">
                         <div className="title">Field:</div>
-                        <div>{this.field}</div>
+                        <div>{this.props.data.field_name}</div>
                     </div>
                     <div className="job-info-detail">
                         <div className="title">Company Name:</div>
-                        <div>{this.props.data.company_id}</div> 
+                        <div>{this.props.data.company_name}</div> 
                     </div>
                     <div className="job-info-detail">
                         <div className="title">Skill:</div>
@@ -48,16 +55,16 @@ class JobPost extends Component {
                     </div>
                     <div className="job-info-detail">
                         <div className="title">Status:</div>
-                        <div>{this.props.data.is_active}</div>
+                        <div>{status}</div>
                     </div>
                     <div className="job-info-detail">
                         <div className="title">Date Posted:</div>
                         <div>{date}</div>
                     </div>
-                    <div className="job-info-detail">
+                    {/* <div className="job-info-detail">
                         <div className="title">Total Applicants:</div>
                         <div>{this.props.data.num_applicants}</div>
-                    </div>
+                    </div> */}
                     <div className="job-info-detail">
                         <div className="title">Description:</div>
                         <div>{this.props.data.job_desc}</div>
