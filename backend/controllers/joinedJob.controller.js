@@ -13,7 +13,7 @@ exports.findAll = (req, res) => {
   })
 };
 
-// Find by job title
+// Find by job title (string)
 exports.findByTitle = (req, res) => {
   JoinedJob.findByTitle(req.params.job_title, (err, data) => {
     if (err) {
@@ -27,7 +27,7 @@ exports.findByTitle = (req, res) => {
   })
 }
 
-// find by skillreq
+// find by skillreq (string. i.e. Programming)
 exports.findBySkill = (req, res) => {
   JoinedJob.findBySkill(req.params.skill_req, (err, data) => {
     if (err) {
@@ -41,7 +41,7 @@ exports.findBySkill = (req, res) => {
   });
 };
 
-// find by experience
+// find by experience (int i.e. 5)
 exports.findByExperience = (req, res) => {
   JoinedJob.findByExperience(req.params.experience, (err, data) => {
     if (err) {
@@ -55,7 +55,7 @@ exports.findByExperience = (req, res) => {
   })
 }
 
-// find by company
+// find by company (string i.e Facebook)
 exports.findByComapny = (req, res) => {
   JoinedJob.findByCompany(req.params.company_name, (err, data) => {
     if (err) {
@@ -69,7 +69,7 @@ exports.findByComapny = (req, res) => {
   })
 }
 
-// find by field
+// find by field (string i.e Information Technology)
 exports.findByField = (req, res) => {
   JoinedJob.findByField(req.params.field_name, (err, data) => {
     //print(req.params.field_name)
@@ -78,6 +78,32 @@ exports.findByField = (req, res) => {
         res.status(404).send({message: `Not found Job with field_name ${req.params.field_name}.`});
       } else {
         res.status(500).send({message: `Error retrieving Job with field_name: ${req.params.field_name}`});
+      }
+    }
+    else res.send(data);
+  })
+}
+
+// update job applicant count by job_id
+exports.updateApplicantCount = (req, res) => {
+  JoinedJob.updateApplicantCount(req.params.field_name, (err, data) => {
+    // Validate Request
+    if (!req.body) {
+      res.status(400).send({
+        message: "Content can not be empty!"
+      });
+    }
+    console.log(req.body);
+
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found Job with id ${req.params.job_id}.`
+        });
+      } else {
+        res.status(500).send({
+          message: "Error updating Job with id " + req.params.job_id
+        });
       }
     }
     else res.send(data);

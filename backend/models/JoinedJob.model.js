@@ -138,21 +138,22 @@ JoinedJob.findByField = (field_name, result) => {
   });
 }
 
-// Put -- ipdate job 
+// Put -- Updates the applicant count per job by id
 JoinedJob.updateApplicantCount = (job_id, result) => {
   const queryString = `UPDATE job\
   SET\
   num_applicants = num_applicants + 1\
   WHERE job_id = ${job_id};`;
+
   sql.query(queryString, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
-      return;
+      return -1;
     }
     if (res.affectedRows == 0) {
       result({ kind: "not_found" }, null);
-      return;
+      return 1;
     }
     console.log("updated joblisting: ");
     result(null, { id: job_id });
@@ -160,4 +161,4 @@ JoinedJob.updateApplicantCount = (job_id, result) => {
 }
 
 module.exports = JoinedJob;
-//JoinedJob.findByField("Information Technology")
+//JoinedJob.updateApplicantCount(1)

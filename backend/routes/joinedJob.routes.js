@@ -4,14 +4,16 @@ module.exports = app => {
 
   // Retrieve all jobs
   router.get('/', joinedJob.findAll);
-  // Retrieve by skill
+  // Retrieve by skill (string, ex: Programming)
   router.get('/byskill/:skill_req', joinedJob.findBySkill);
-  // Retrieve by min experience (years)
+  // Retrieve by min experience (int, ex: 5)
   router.get('/byexperience/:experience', joinedJob.findByExperience);
-  // Retrieve by company_id 
+  // Retrieve by company_name (string, ex: Facebook)
   router.get('/bycompany/:company_name', joinedJob.findByComapny);
-  // Retrieve by field
+  // Retrieve by field name (string, ex: Information Technology)
   router.get('/byfield/:field_name', joinedJob.findByField);
+  // Update job applicant count by job_id
+  router.put('/:job_id', joinedJob.updateApplicantCount);
 
   app.use('/api/joinedJob', router)
 }
